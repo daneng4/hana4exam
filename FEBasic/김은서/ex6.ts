@@ -7,7 +7,7 @@ type promiseResult<T> = | { status: "fulfilled"; value: T }
 export function promiseAllSettled<T>(promises: Promise<T>[]): Promise<promiseResult<T>[]> {
   
   return new Promise((resolve) => {
-    const results: PromiseSettledResult<T>[] = [];
+    const results: promiseResult<T>[] = [];
     let count = 0;
 
     promises.forEach((promise, index) => {
