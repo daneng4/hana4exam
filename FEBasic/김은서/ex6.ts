@@ -1,7 +1,7 @@
 export const randTime = <T>(val: T): Promise<T> =>
   new Promise(resolve => setTimeout(resolve, Math.random() * 1000, val));
 
-type promiseResult<T> = | { status: "fulfilled"; value: T }
+type promiseResult<T> = { status: "fulfilled"; value: T }
 | { status: "rejected"; reason: any };
 
 export function promiseAllSettled<T>(promises: Promise<T>[]): Promise<promiseResult<T>[]> {
